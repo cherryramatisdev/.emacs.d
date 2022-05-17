@@ -35,6 +35,7 @@ Return a list of installed packages or nil for every skipped package."
  'web-mode 
  'typescript-mode
  'magit
+ 'persp-mode
 )
 
 ;; ssss-----------------------------------------
@@ -303,6 +304,7 @@ Version 2017-11-10"
 (require 'ts-js-config)
 
 (define-key my-leader (kbd "g") 'magit-status)
+(require 'perspectives)
 
 ;; ssss---------------------------------------------------
 ;; configure file templates for newly created files
