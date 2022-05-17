@@ -4,7 +4,6 @@
 ;;; Commentary:
 
 ;;; Code:
-;; TODO: discover what leader to set this
 (define-prefix-command 'my-leader)
 
 (define-key my-leader (kbd "c") 'compile)
