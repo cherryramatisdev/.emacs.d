@@ -16,9 +16,13 @@
 
 (defun key/q ()
   (interactive)
-  (if (string-equal major-mode "magit-status-mode")
-      (magit-mode-bury-buffer t)
-    (xah-reformat-lines)))
+  (when (string-equal major-mode "magit-status-mode")
+    (magit-mode-bury-buffer t))
+  (when (string-equal major-mode "dired-mode")
+    (call-interactively 'quit-window))
+  (when (string-equal major-mode "ibuffer-mode")
+    (call-interactively 'quit-window))
+  (xah-reformat-lines))
 
 (defun key/c ()
   (interactive)

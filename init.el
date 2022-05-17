@@ -174,23 +174,9 @@ Return a list of installed packages or nil for every skipped package."
   (define-key icomplete-minibuffer-map (kbd "C-f") 'icomplete-forward-completions)
   (define-key icomplete-minibuffer-map (kbd "C-b") 'icomplete-backward-completions))
 
-(progn
-  ;; make buffer switch command do suggestions, also for find-file command
-  (require 'ido)
-  (ido-mode 1)
 
-  ;; show choices vertically
-  (if (version< emacs-version "25")
-      (setq ido-separator "\n")
-    (setf (nth 2 ido-decorations) "\n"))
-
-  ;; show any name that has the chars you typed
-  (setq ido-enable-flex-matching t)
-  ;; use current pane for newly opened file
-  (setq ido-default-file-method 'selected-window)
-  ;; stop ido from suggesting when naming new file
-  (when (boundp 'ido-minor-mode-map-entry)
-    (define-key (cdr ido-minor-mode-map-entry) [remap write-file] nil)))
+;; make buffer switch command do suggestions, also for find-file command
+(fido-vertical-mode 1)
 
 ;; ssss-----------------------------------------
 ;; remember cursor position
@@ -307,6 +293,7 @@ Version 2017-11-10"
 (require 'magit-config)
 (require 'ibuffer-config)
 (require 'perspectives)
+(require 'dired-config)
 
 ;; ssss---------------------------------------------------
 ;; configure file templates for newly created files
