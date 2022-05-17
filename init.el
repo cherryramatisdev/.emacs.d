@@ -1,8 +1,6 @@
-;; -*- coding: utf-8; lexical-binding: t; -*-
-;; Emacs settings
+;; -*- coding: utf-8; lexical-binding: t; -*- ;; Emacs settings
 
-;;-ssss-----------------------------------------
-;; Configure emacs access to MELPA
+;;-ssss----------------------------------------- ;; Configure emacs access to MELPA
 
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -62,10 +60,14 @@ Return a list of installed packages or nil for every skipped package."
 (setq inhibit-startup-screen t)
 
 ;; ssss-----------------------------------------
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8-unix)
-;; This is important for emacs use LF line endings instead of CRLF: https://www.aleksandrhovhannisyan.com/blog/crlf-vs-lf-normalizing-line-endings-in-git/
+;; This is important for emacs use LF line endings instead of CRLF:
+;; https://www.aleksandrhovhannisyan.com/blog/crlf-vs-lf-normalizing-line-endings-in-git/
+;; https://stackoverflow.com/questions/1674481/how-to-configure-gnu-emacs-to-write-unix-or-dos-formatted-files-by-default
 (setq-default buffer-file-coding-system 'utf-8-unix)
+(setq-default default-buffer-file-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
+(prefer-coding-system 'utf-8-unix)
+(set-language-environment "UTF-8")
 
 ;; ssss-----------------------------------------
 (setq make-backup-files nil)
@@ -291,7 +293,6 @@ Version 2017-11-10"
 ;; Load libraries and configure packages
 (require 'ts-js-config)
 (require 'magit-config)
-(require 'ibuffer-config)
 (require 'perspectives)
 (require 'dired-config)
 
