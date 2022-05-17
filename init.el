@@ -304,8 +304,7 @@ Version 2017-11-10"
 ;; ssss---------------------------------------------------
 ;; Load libraries and configure packages
 (require 'ts-js-config)
-
-(define-key my-leader (kbd "g") 'magit-status)
+(require 'magit-config)
 (require 'perspectives)
 
 ;; ssss---------------------------------------------------
