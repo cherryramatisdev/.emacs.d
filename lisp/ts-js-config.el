@@ -38,6 +38,8 @@
   "Format current file if it's running web mode"
   (interactive)
   (when (string-equal major-mode "web-mode")
+    (prettier-format))
+  (when (string-equal major-mode "typescript-mode")
     (prettier-format)))
 
 (add-hook 'after-save-hook 'run-prettier-on-save)
