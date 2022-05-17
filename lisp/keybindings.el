@@ -1,3 +1,4 @@
+
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 ;; keybindings.el --- General keybindings that work on all modes
 
@@ -14,6 +15,9 @@
 (define-key my-leader (kbd "pp") 'project-switch-project)
 (define-key my-leader (kbd "pc") 'project-compile)
 (define-key my-leader (kbd "pe") 'project-eshell)
+ 
+(define-key my-leader (kbd "s") 'persp-frame-switch)
+(define-key my-leader (kbd "TAB") 'persp-prev)
 
 (define-key xah-fly-command-map (kbd "<backspace>") my-leader)
 
