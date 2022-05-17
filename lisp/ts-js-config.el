@@ -13,7 +13,7 @@
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist
-             '("\\.tsx\\'" . 'web-mode))
+             '("\\.tsx\\'" . web-mode))
 
 (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
@@ -28,6 +28,19 @@
 (require 'typescript-mode)
 (setq typescript-indent-level 2)
 (add-hook 'typescript-mode #'subword-mode)
+
+(defun prettier-format ()
+  (interactive)
+  (call-process "yarn" nil "*prettier-output*" nil "prettier" "--write" (buffer-file-name))
+  (revert-buffer nil 'no-confirm t))
+
+(defun run-prettier-on-save ()
+  "Format current file if it's running web mode"
+  (interactive)
+  (when (string-equal major-mode "web-mode")
+    (prettier-format)))
+
+(add-hook 'after-save-hook 'run-prettier-on-save)
 
 (provide 'ts-js-config)
 ;;; ts-js-config.el ends here
