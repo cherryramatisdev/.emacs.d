@@ -16,8 +16,7 @@
 (define-key my-leader (kbd "pc") 'project-compile)
 (define-key my-leader (kbd "pe") 'project-eshell)
 
-(define-key xah-fly-command-map (kbd "<backspace>") my-leader
-)
+(define-key xah-fly-command-map (kbd "<backspace>") my-leader)
 
 (provide 'keybindings)
 ;;; keybindings.el ends here
