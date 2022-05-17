@@ -305,6 +305,7 @@ Version 2017-11-10"
 ;; Load libraries and configure packages
 (require 'ts-js-config)
 (require 'magit-config)
+(require 'ibuffer-config)
 (require 'perspectives)
 
 ;; ssss---------------------------------------------------
