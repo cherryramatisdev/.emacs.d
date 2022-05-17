@@ -43,10 +43,6 @@ Return a list of installed packages or nil for every skipped package."
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; ssss-----------------------------------------
-;; Define general keybindings
-(require 'keybindings)
-
-;; ssss-----------------------------------------
 ;; Load xah fly keys
 (require 'xah-fly-keys)
 (xah-fly-keys-set-layout "qwerty")
@@ -56,6 +52,10 @@ Return a list of installed packages or nil for every skipped package."
 (global-set-key (kbd "C-n") nil)
 
 (xah-fly-keys 1)
+
+;; ssss-----------------------------------------
+;; Define general keybindings
+(require 'keybindings)
 
 ;; ssss-----------------------------------------
 ;; initial window and default window
