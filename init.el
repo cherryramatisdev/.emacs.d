@@ -64,6 +64,8 @@ Return a list of installed packages or nil for every skipped package."
 ;; ssss-----------------------------------------
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8-unix)
+;; This is important for emacs use LF line endings instead of CRLF: https://www.aleksandrhovhannisyan.com/blog/crlf-vs-lf-normalizing-line-endings-in-git/
+(setq-default buffer-file-coding-system 'utf-8-unix)
 
 ;; ssss-----------------------------------------
 (setq make-backup-files nil)
