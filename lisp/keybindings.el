@@ -26,16 +26,6 @@
       (magit-stage)
     (open-line 1)))
 
-(defun key/q ()
-  (interactive)
-  (when (string-equal major-mode "magit-status-mode")
-    (magit-mode-bury-buffer t))
-  (when (string-equal major-mode "dired-mode")
-    (call-interactively 'quit-window))
-  (when (string-equal major-mode "ibuffer-mode")
-    (call-interactively 'quit-window))
-  (xah-reformat-lines))
-
 (defun key/c ()
   (interactive)
   (if (string-equal major-mode "magit-status-mode")
@@ -51,7 +41,6 @@
 (define-key xah-fly-command-map (kbd "d") 'key/d)
 (define-key xah-fly-command-map (kbd "x") 'key/x)
 (define-key xah-fly-command-map (kbd "s") 'key/s)
-(define-key xah-fly-command-map (kbd "q") 'key/q)
 (define-key xah-fly-command-map (kbd "c") 'key/c)
 (define-key xah-fly-command-map (kbd "b") 'key/b)
 

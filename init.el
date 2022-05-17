@@ -297,6 +297,7 @@ Version 2017-11-10"
 (require 'perspectives)
 (require 'dired-config)
 (require 'isearch-config)
+(require 'ibuffer-config)
 
 ;; ssss---------------------------------------------------
 ;; configure file templates for newly created files
