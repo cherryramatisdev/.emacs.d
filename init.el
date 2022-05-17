@@ -289,12 +289,14 @@ Version 2017-11-10"
           (rename-buffer "eww" t)))))
 
   (add-hook 'eww-after-render-hook 'xah-rename-eww-buffer))
+
 ;; ssss---------------------------------------------------
 ;; Load libraries and configure packages
 (require 'ts-js-config)
 (require 'magit-config)
 (require 'perspectives)
 (require 'dired-config)
+(require 'isearch-config)
 
 ;; ssss---------------------------------------------------
 ;; configure file templates for newly created files
