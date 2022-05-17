@@ -26,9 +26,16 @@
       (magit-commit)
     (xah-copy-line-or-region)))
 
+(defun key/b ()
+  (interactive)
+  (if (string-equal major-mode "magit-status-mode")
+      (magit-branch nil)
+    (xah-toggle-letter-case)))
+
 (define-key xah-fly-command-map (kbd "s") 'key/s)
 (define-key xah-fly-command-map (kbd "q") 'key/q)
 (define-key xah-fly-command-map (kbd "c") 'key/c)
+(define-key xah-fly-command-map (kbd "b") 'key/b)
 
 (provide 'magit-config)
 ;;; magit-config.el ends here
