@@ -12,12 +12,20 @@
     (call-interactively 'dired-flag-file-deletion))
   (xah-delete-backward-char-or-bracket-text))
 
+(defun key/g ()
+  (interactive)
+  (when (string-equal major-mode "dired-mode")
+    (call-interactively 'revert-buffer))
+  (xah-delete-current-text-block))
+
 (defun key/x ()
   (interactive)
   (when (string-equal major-mode "ibuffer-mode")
     (call-interactively 'ibuffer-do-kill-on-deletion-marks))
   (when (string-equal major-mode "dired-mode")
     (call-interactively 'dired-do-flagged-delete))
+  (when (string-equal major-mode "magit-status-mode")
+    (call-interactively 'magit-discard))
   (xah-cut-line-or-region))
 
 (defun key/s ()
@@ -43,6 +51,7 @@
 (define-key xah-fly-command-map (kbd "s") 'key/s)
 (define-key xah-fly-command-map (kbd "c") 'key/c)
 (define-key xah-fly-command-map (kbd "b") 'key/b)
+(define-key xah-fly-command-map (kbd "g") 'key/g)
 
 ;; ssss-----------------------------------------
 ;; Local Leader
@@ -56,10 +65,11 @@
 (define-key my-leader (kbd "pp") 'project-switch-project)
 (define-key my-leader (kbd "pc") 'project-compile)
 (define-key my-leader (kbd "pe") 'project-eshell)
- 
-(define-key my-leader (kbd "s") 'persp-frame-switch)
-(define-key my-leader (kbd "TAB") 'persp-prev)
 
+(define-key my-leader (kbd "s") 'persp-switch)
+(define-key my-leader (kbd "TAB") 'persp-next)
+(define-key my-leader (kbd "<backspace>") 'persp-kill)
+ 
 (define-key xah-fly-command-map (kbd "<backspace>") my-leader)
 
 (global-set-key (kbd "C-k") 'forward-paragraph)
