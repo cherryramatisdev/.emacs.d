@@ -33,7 +33,8 @@ Return a list of installed packages or nil for every skipped package."
  'web-mode 
  'typescript-mode
  'magit
- 'persp-mode
+ 'perspective
+ 'ag
 )
 
 ;; ssss-----------------------------------------
@@ -311,7 +312,7 @@ Version 2017-11-10"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ahk-syntax-directory "c:/Users/cherr/Desktop/scripts/user.ahk")
- '(package-selected-packages '(magit typescript-mode web-mode xah-fly-keys)))
+ '(package-selected-packages '(ag magit typescript-mode web-mode xah-fly-keys)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
