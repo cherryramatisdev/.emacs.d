@@ -153,6 +153,8 @@ Return a list of installed packages or nil for every skipped package."
    (cond
     ((member "WenQuanYi Micro Hei" (font-family-list)) "WenQuanYi Micro Hei")))))
 
+(set-face-attribute 'default nil :height 140)
+
 ;; ssss-----------------------------------------
 
 (progn
