@@ -35,6 +35,7 @@ Return a list of installed packages or nil for every skipped package."
  'magit
  'perspective
  'ag
+ 'corfu
 )
 
 ;; ssss-----------------------------------------
@@ -48,7 +49,6 @@ Return a list of installed packages or nil for every skipped package."
 
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
-(global-set-key (kbd "C-n") nil)
 
 (xah-fly-keys 1)
 
@@ -301,6 +301,7 @@ Version 2017-11-10"
 (require 'dired-config)
 (require 'isearch-config)
 (require 'ibuffer-config)
+(require 'corfu-config)
 
 ;; ssss---------------------------------------------------
 ;; configure file templates for newly created files
