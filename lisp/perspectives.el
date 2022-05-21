@@ -4,6 +4,9 @@
 ;;; Commentary:
 
 ;;; Code:
+(if (not (package-installed-p 'perspective))
+    (error "Please install perspective"))
+
 (require 'perspective)
 (customize-set-variable 'persp-mode-prefix-key (kbd "C-x x"))
 

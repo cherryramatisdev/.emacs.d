@@ -4,6 +4,9 @@
 ;;; Commentary:
 
 ;;; Code:
+(if (not (package-installed-p 'magit))
+    (error "Please install magit"))
+
 (require 'magit)
 
 (add-hook 'magit-status-hook 'xah-fly-command-mode-activate)
