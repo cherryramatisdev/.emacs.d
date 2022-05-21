@@ -36,6 +36,7 @@ Return a list of installed packages or nil for every skipped package."
  'perspective
  'ag
  'corfu
+ 'eglot
 )
 
 ;; ssss-----------------------------------------
@@ -302,6 +303,7 @@ Version 2017-11-10"
 (require 'isearch-config)
 (require 'ibuffer-config)
 (require 'corfu-config)
+(require 'eglot-config)
 
 ;; ssss---------------------------------------------------
 ;; configure file templates for newly created files
@@ -315,7 +317,8 @@ Version 2017-11-10"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ahk-syntax-directory "c:/Users/cherr/Desktop/scripts/user.ahk")
- '(package-selected-packages '(ag magit typescript-mode web-mode xah-fly-keys)))
+ '(package-selected-packages
+   '(eglot corfu ag magit typescript-mode web-mode xah-fly-keys)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
