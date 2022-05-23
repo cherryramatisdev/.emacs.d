@@ -35,9 +35,10 @@ Return a list of installed packages or nil for every skipped package."
  'magit
  'perspective
  'ag
- 'corfu
+ 'company
+ 'company-tabnine
  'eglot
-)
+ )
 
 ;; ssss-----------------------------------------
 ;; Add libraries to emacs world
@@ -87,7 +88,7 @@ Return a list of installed packages or nil for every skipped package."
 (blink-cursor-mode 0)
 (setq use-dialog-box nil)
 
-(set-background-color "honeydew")
+(load-theme 'modus-vivendi)
 
 ;; Disable bells on windows, so annoying
 (setq visible-bell 1)
@@ -302,7 +303,7 @@ Version 2017-11-10"
 (require 'dired-config)
 (require 'isearch-config)
 (require 'ibuffer-config)
-(require 'corfu-config)
+(require 'company-config)
 (require 'eglot-config)
 
 ;; ssss---------------------------------------------------
@@ -318,7 +319,7 @@ Version 2017-11-10"
  ;; If there is more than one, they won't work right.
  '(ahk-syntax-directory "c:/Users/cherr/Desktop/scripts/user.ahk")
  '(package-selected-packages
-   '(eglot corfu ag magit typescript-mode web-mode xah-fly-keys)))
+   '(company-tabnine company eglot corfu ag magit typescript-mode web-mode xah-fly-keys)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
