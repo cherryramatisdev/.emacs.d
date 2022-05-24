@@ -304,7 +304,7 @@ Version 2017-11-10"
 (require 'isearch-config)
 (require 'ibuffer-config)
 (require 'company-config)
-(require 'eglot-config)
+;; (require 'eglot-config)
 
 ;; ssss---------------------------------------------------
 ;; configure file templates for newly created files
