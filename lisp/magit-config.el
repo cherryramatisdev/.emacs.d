@@ -13,5 +13,7 @@
 
 (define-key my-leader (kbd "g") 'magit-status)
 
+(define-key magit-status-mode-map (kbd "C-w") 'my/kill-window)
+
 (provide 'magit-config)
 ;;; magit-config.el ends here
