@@ -306,6 +306,7 @@ Version 2017-11-10"
 (require 'isearch-config)
 (require 'ibuffer-config)
 (require 'company-config)
+(require 'switch-project)
 ;; (require 'eglot-config)
 
 ;; ssss---------------------------------------------------
