@@ -1,6 +1,8 @@
-;; -*- coding: utf-8; lexical-binding: t; -*- ;; Emacs settings
+;; -*- coding: utf-8; lexical-binding: t; -*-
+;; Emacs settings
 
-;;-ssss----------------------------------------- ;; Configure emacs access to MELPA
+;; ssss-----------------------------------------
+;; Configure emacs access to MELPA
 
 (when (>= emacs-major-version 24)
   (require 'package)
