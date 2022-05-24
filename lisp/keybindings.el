@@ -53,6 +53,14 @@
 (define-key xah-fly-command-map (kbd "b") 'key/b)
 (define-key xah-fly-command-map (kbd "g") 'key/g)
 
+(defun my/find-file ()
+  (interactive)
+  (cond
+   ((string-equal major-mode "dired-mode") (find-file (read-string "Insert file name: ")))
+   (t (find-file (read-file-name "Select file: ")))))
+
+(define-key xah-fly-command-map (kbd "SPC i e") 'my/find-file)
+
 ;; ssss-----------------------------------------
 ;; Local Leader
 (define-prefix-command 'my-leader)
@@ -62,7 +70,6 @@
 
 (define-key my-leader (kbd "p") nil)
 (define-key my-leader (kbd "f") 'project-find-file)
-(define-key my-leader (kbd "pp") 'project-switch-project)
 (define-key my-leader (kbd "pc") 'project-compile)
 (define-key my-leader (kbd "pe") 'project-eshell)
 
