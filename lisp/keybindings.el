@@ -78,5 +78,15 @@
 (keyboard-translate ?\C-i ?\H-i)
 (global-set-key [?\H-i] 'backward-paragraph)
 
+(defun my/kill-window ()
+  (interactive)
+  (if (one-window-p)
+      (kill-buffer)
+    (progn
+      (kill-buffer)
+      (quit-window))))
+
+(global-set-key (kbd "C-w") 'my/kill-window)
+
 (provide 'keybindings)
 ;;; keybindings.el ends here
