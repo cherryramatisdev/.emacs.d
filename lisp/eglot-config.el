@@ -5,8 +5,8 @@
 
 ;;; Code:
 
-(if (not (package-installed-p 'corfu))
-    (error "Install `corfu' package"))
+(if (not (package-installed-p 'eglot))
+    (error "Install `eglot' package"))
 
 (require 'eglot)
 
