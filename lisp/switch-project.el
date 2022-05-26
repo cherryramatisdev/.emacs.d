@@ -4,14 +4,18 @@
 ;;; Commentary:
 
 ;;; Code:
-(setq projects (delete ".." (delete "." (directory-files "~/git"))))
+(defun magit-status-fullscreen ()
+  (interactive)
+  (magit-status)
+  (delete-other-windows))
 
 (defun my/switch-project ()
   (interactive)
   (let ((selectedProject (completing-read "Select project: " projects)))
     (progn
       (persp-switch selectedProject)
-      (project-switch-project (expand-file-name (format "~/git/%s" selectedProject)))
+      (cd (expand-file-name (format "%s/%s" projectPrefix selectedProject)))
+      (magit-status-fullscreen)
       )))
 
 (define-key my-leader (kbd "pp") 'my/switch-project)

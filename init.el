@@ -306,6 +306,8 @@ Version 2017-11-10"
 (require 'isearch-config)
 (require 'ibuffer-config)
 (require 'company-config)
+(setq projects (delete ".." (delete "." (directory-files "D:\\git"))))
+(setq projectPrefix "D:\\git")
 (require 'switch-project)
 ;; (require 'eglot-config)
 
