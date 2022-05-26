@@ -56,6 +56,17 @@ Return a list of installed packages or nil for every skipped package."
 
 (xah-fly-keys 1)
 
+(defun my/server-fix-up()
+  "Make sure 'xah-fly-keys' is starting in command-mode.
+
+https://github.com/xahlee/xah-fly-keys/issues/103
+https://github.com/daviwil/emacs-from-scratch/blob/master/show-notes/Emacs-Tips-08.org#configuring-the-ui-for-new-frames"
+  (xah-fly-keys-set-layout "qwerty")
+  (xah-fly-keys t))
+
+(if (daemonp)
+    (add-hook 'server-after-make-frame-hook 'my/server-fix-up))
+
 ;; ssss-----------------------------------------
 ;; Define general keybindings
 (require 'keybindings)
