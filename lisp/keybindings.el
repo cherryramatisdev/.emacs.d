@@ -89,9 +89,7 @@
   (interactive)
   (if (one-window-p)
       (kill-buffer)
-    (progn
-      (kill-buffer)
-      (quit-window))))
+    (quit-window t)))
 
 (global-set-key (kbd "C-w") 'my/kill-window)
 
