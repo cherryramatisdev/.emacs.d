@@ -94,9 +94,6 @@ https://github.com/daviwil/emacs-from-scratch/blob/master/show-notes/Emacs-Tips-
 ;; ssss-----------------------------------------
 ;; user interface
 
-(when (version<= "26.0.50" emacs-version)
-  (global-display-line-numbers-mode))
-
 (column-number-mode 1)
 (blink-cursor-mode 0)
 (setq use-dialog-box nil)
