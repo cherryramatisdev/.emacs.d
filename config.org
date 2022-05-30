@@ -233,6 +233,12 @@ This is actually temporary, I plan to move all the keybindings definitions to su
   (setq dired-recursive-copies 'top)
   (setq dired-recursive-deletes 'top))
 #+END_SRC
+** Eshell
+*** Kill eshell buffer when process dies
+#+BEGIN_SRC emacs-lisp
+(setq eshell-destroy-buffer-when-process-dies t)
+#+END_SRC
+
 ** Org mode
 *** Require org
 #+BEGIN_SRC emacs-lisp
