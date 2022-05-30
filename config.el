@@ -1,3 +1,9 @@
+(setq gc-cons-threshold most-positive-fixnum)
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 2 1000 1000))))
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -25,15 +31,18 @@ Return a list of installed packages or nil for every skipped package."
 (package-initialize)
 
 (ensure-package-installed 
+ 'async
  'web-mode 
  'typescript-mode
  'magit
  'perspective
  'ag
- 'company
- 'company-tabnine
+ 'corfu
+ 'cape
  'eglot
  'ace-jump-mode
+ 'expand-region
+ 'multiple-cursors
  )
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -149,6 +158,8 @@ Return a list of installed packages or nil for every skipped package."
   (setq dired-recursive-copies 'top)
   (setq dired-recursive-deletes 'top))
 
+(setq eshell-destroy-buffer-when-process-dies t)
+
 (require 'org)
 
 (defun insert-code-block ()
@@ -176,11 +187,33 @@ Return a list of installed packages or nil for every skipped package."
 (require 'dired-config)
 (require 'isearch-config)
 (require 'ibuffer-config)
-(require 'company-config)
+(require 'completion-config)
 (setq projects (delete ".." (delete "." (directory-files "D:\\git"))))
 (setq projectPrefix "D:\\git")
 (require 'switch-project)
-;; (require 'eglot-config)
+(require 'eglot-config)
 
 (require 'ace-jump-mode)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
+(require 'expand-region)
+(global-set-key (kbd "C-'") 'er/expand-region)
+
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+(require 'iy-go-to-char)
+(add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
+
+(global-set-key (kbd "C-c f") 'iy-go-to-char)
+(global-set-key (kbd "C-c F") 'iy-go-to-char-backward)
+(global-set-key (kbd "C-c ;") 'iy-go-to-or-up-to-continue)
+(global-set-key (kbd "C-c ,") 'iy-go-to-or-up-to-continue-backward)
+
+(require 'async)
+(dired-async-mode 1)
+(async-bytecomp-package-mode 1)
+(setq-default async-bytecomp-allowed-packages '(all))
