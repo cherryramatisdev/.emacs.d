@@ -38,6 +38,7 @@
    'company
    'company-tabnine
    'eglot
+   'tempel
    'ace-jump-mode
    'expand-region
    'multiple-cursors
@@ -164,12 +165,6 @@ References
 (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
-** Configure file templates for newly created files
-#+BEGIN_SRC emacs-lisp
-(setq auto-insert-directory "~/.emacs.d/templates/")
-(add-hook 'find-file-hook 'auto-insert)
-(define-auto-insert "\.el" "emacs-lisp-lib.el")
-#+END_SRC
 * Appearance
 ** Load theme
 #+BEGIN_SRC emacs-lisp
@@ -320,4 +315,23 @@ To make iy-go-to-char works better with multiple-cursors, add iy-go-to-char-star
 (global-set-key (kbd "C-c F") 'iy-go-to-char-backward)
 (global-set-key (kbd "C-c ;") 'iy-go-to-or-up-to-continue)
 (global-set-key (kbd "C-c ,") 'iy-go-to-or-up-to-continue-backward)
+#+END_SRC
+** Tempel
+Tempel is a tiny template package for Emacs, which uses the syntax of the Emacs Tempo library. Tempo is an ancient temple of the church of Emacs. It is 27 years old, but still in good shape since it successfully resisted change over the decades. However it may look a bit dusty here and there. Therefore we present to you, Tempel, a modernized implementation of Tempo, in the form of three commands:
+
+#+BEGIN_SRC emacs-lisp
+  (require 'tempel)
+
+  (defun tempel-setup-capf ()
+    (interactive)
+    (setq-local completion-at-point-functions
+                (cons #'tempel-expand
+                      completion-at-point-functions)))
+
+  (add-hook 'prog-mode-hook 'tempel-setup-capf)
+  (add-hook 'text-mode-hook 'tempel-setup-capf)
+
+  (global-set-key (kbd "C-<return>") 'tempel-expand)
+  (global-set-key (kbd "M-=") 'tempel-expand)
+  (define-key tempel-map [remap keyboard-escape-quit] 'tempel-done)
 #+END_SRC
