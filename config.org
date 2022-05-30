@@ -30,6 +30,7 @@
 * Install necessary packages
 #+BEGIN_SRC emacs-lisp
   (ensure-package-installed 
+   'async
    'web-mode 
    'typescript-mode
    'magit
@@ -321,6 +322,16 @@ To make iy-go-to-char works better with multiple-cursors, add iy-go-to-char-star
 (global-set-key (kbd "C-c F") 'iy-go-to-char-backward)
 (global-set-key (kbd "C-c ;") 'iy-go-to-or-up-to-continue)
 (global-set-key (kbd "C-c ,") 'iy-go-to-or-up-to-continue-backward)
+#+END_SRC
+** Async
+Emacs look SIGNIFICANTLY less often which is a good thing.
+asynchronous bytecode compilation and various other actions makes
+
+#+BEGIN_SRC emacs-lisp
+(require 'async)
+(dired-async-mode 1)
+(async-bytecomp-package-mode 1)
+(setq-default async-bytecomp-allowed-packages '(all))
 #+END_SRC
 ** Tempel
 Tempel is a tiny template package for Emacs, which uses the syntax of the Emacs Tempo library. Tempo is an ancient temple of the church of Emacs. It is 27 years old, but still in good shape since it successfully resisted change over the decades. However it may look a bit dusty here and there. Therefore we present to you, Tempel, a modernized implementation of Tempo, in the form of three commands:
