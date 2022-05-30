@@ -18,7 +18,8 @@
       (magit-status-fullscreen)
       )))
 
-(define-key my-leader (kbd "pp") 'my/switch-project)
+(global-set-key (kbd "C-x p") 'my/switch-project)
+(global-set-key (kbd "C-c f") 'project-find-file)
 
 (provide 'switch-project)
 ;;; switch-project.el ends here

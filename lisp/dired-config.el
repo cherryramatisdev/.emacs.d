@@ -13,6 +13,7 @@
   (call-interactively 'revert-buffer))
 
 (define-key dired-mode-map (kbd "R") 'my/rename-file)
+(define-key dired-mode-map (kbd "C-x C-f") (lambda () (interactive) (find-file (read-string "Insert file name: "))))
 
 (provide 'dired-config)
 ;;; dired-config.el ends here

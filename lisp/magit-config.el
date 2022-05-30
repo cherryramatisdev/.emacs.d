@@ -11,9 +11,7 @@
 
 (add-hook 'magit-status-hook 'xah-fly-command-mode-activate)
 
-(define-key my-leader (kbd "g") 'magit-status)
-
-(define-key magit-status-mode-map (kbd "C-w") 'my/kill-window)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (provide 'magit-config)
 ;;; magit-config.el ends here
