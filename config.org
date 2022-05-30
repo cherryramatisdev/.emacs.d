@@ -362,5 +362,7 @@ Tempel is a tiny template package for Emacs, which uses the syntax of the Emacs 
 
   (global-set-key (kbd "C-<return>") 'tempel-expand)
   (global-set-key (kbd "M-=") 'tempel-expand)
+  (global-set-key (kbd "M-]") 'tempel-next)
+  (global-set-key (kbd "M-[") 'tempel-previous)
   (define-key tempel-map [remap keyboard-escape-quit] 'tempel-done)
 #+END_SRC
