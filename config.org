@@ -1,3 +1,15 @@
+* Startup
+** Minimize garbage collection during startup
+#+BEGIN_SRC emacs-lisp
+(setq gc-cons-threshold most-positive-fixnum)
+#+END_SRC
+** Lower threshold to speed up garbage collection
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'emacs-startup-hook
+            (lambda ()
+              (setq gc-cons-threshold (* 2 1000 1000))))
+#+END_SRC
+
 * Configure emacs access to MELPA
 #+BEGIN_SRC emacs-lisp
   (when (>= emacs-major-version 24)
