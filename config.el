@@ -40,9 +40,11 @@ Return a list of installed packages or nil for every skipped package."
  'corfu
  'cape
  'eglot
+ 'tempel
  'ace-jump-mode
  'expand-region
  'multiple-cursors
+ 'sly
  )
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -112,10 +114,6 @@ Return a list of installed packages or nil for every skipped package."
 (setq sentence-end-double-space nil )
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-(setq auto-insert-directory "~/.emacs.d/templates/")
-(add-hook 'find-file-hook 'auto-insert)
-(define-auto-insert "\.el" "emacs-lisp-lib.el")
 
 (load-theme 'modus-vivendi)
 
@@ -188,8 +186,8 @@ Return a list of installed packages or nil for every skipped package."
 (require 'isearch-config)
 (require 'ibuffer-config)
 (require 'completion-config)
-(setq projects (delete ".." (delete "." (directory-files "D:\\git"))))
-(setq projectPrefix "D:\\git")
+(setq projects (delete ".." (delete "." (directory-files "~/git"))))
+(setq projectPrefix "~/git")
 (require 'switch-project)
 (require 'eglot-config)
 
@@ -217,3 +215,23 @@ Return a list of installed packages or nil for every skipped package."
 (dired-async-mode 1)
 (async-bytecomp-package-mode 1)
 (setq-default async-bytecomp-allowed-packages '(all))
+
+(require 'tempel)
+
+(defun tempel-setup-capf ()
+  (interactive)
+  (setq-local completion-at-point-functions
+              (cons #'tempel-expand
+                    completion-at-point-functions)))
+
+(add-hook 'prog-mode-hook 'tempel-setup-capf)
+(add-hook 'text-mode-hook 'tempel-setup-capf)
+
+(global-set-key (kbd "C-<return>") 'tempel-expand)
+(global-set-key (kbd "M-=") 'tempel-expand)
+(global-set-key (kbd "M-]") 'tempel-next)
+(global-set-key (kbd "M-[") 'tempel-previous)
+(define-key tempel-map [remap keyboard-escape-quit] 'tempel-done)
+
+;; (load (expand-file-name "~/.roswell/helper.el"))
+(setq inferior-lisp-program "ros -Q run")

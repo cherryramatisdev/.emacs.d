@@ -294,8 +294,8 @@ On org mode it's important to create a lot of code blocks to keep our configurat
   (require 'isearch-config)
   (require 'ibuffer-config)
   (require 'completion-config)
-  (setq projects (delete ".." (delete "." (directory-files "D:\\git"))))
-  (setq projectPrefix "D:\\git")
+  (setq projects (delete ".." (delete "." (directory-files "~/git"))))
+  (setq projectPrefix "~/git")
   (require 'switch-project)
   (require 'eglot-config)
 #+END_SRC

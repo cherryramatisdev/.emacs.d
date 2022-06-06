@@ -9,7 +9,7 @@
  ;; If there is more than one, they won't work right.
  '(ahk-syntax-directory "c:/Users/cherr/Desktop/scripts/user.ahk")
  '(package-selected-packages
-   '(tempel cape async sly multiple-cursor multiple-cursors expand-region ace-jump-mode yaml-mode powershell company-tabnine company eglot corfu ag magit typescript-mode web-mode xah-fly-keys)))
+   '(magit-gh-pulls tempel cape async multiple-cursor multiple-cursors expand-region ace-jump-mode yaml-mode powershell company-tabnine company eglot corfu ag magit typescript-mode web-mode xah-fly-keys)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
