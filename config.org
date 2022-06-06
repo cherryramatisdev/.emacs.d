@@ -55,6 +55,7 @@
    'ace-jump-mode
    'expand-region
    'multiple-cursors
+   'sly
    )
 #+END_SRC
 
@@ -366,3 +367,8 @@ Tempel is a tiny template package for Emacs, which uses the syntax of the Emacs 
   (global-set-key (kbd "M-[") 'tempel-previous)
   (define-key tempel-map [remap keyboard-escape-quit] 'tempel-done)
 #+END_SRC
+** Slime
+Setup common lisp REPL for emacs
+#+begin_src emacs-lisp
+  (setq inferior-lisp-program "ros -Q run")
+#+end_src
