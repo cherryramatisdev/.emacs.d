@@ -4,16 +4,11 @@
 ;;; Commentary:
 
 ;;; Code:
-(define-key dired-mode-map (kbd "C-b") 'dired-up-directory)
-(define-key dired-mode-map (kbd "C-f") 'dired-find-file)
-
-(defun my/rename-file ()
-  (interactive)
-  (rename-file (thing-at-point 'word 'no-properties) (read-string "Insert new name: "))
-  (call-interactively 'revert-buffer))
-
-(define-key dired-mode-map (kbd "R") 'my/rename-file)
-(define-key dired-mode-map (kbd "C-x C-f") (lambda () (interactive) (find-file (read-string "Insert file name: "))))
+(use-package dired
+  :ensure nil
+  :bind (:map dired-mode-map
+	 ("TAB" . dired-find-file)
+	 ("<backtab>" . dired-up-directory)))
 
 (provide 'dired-config)
 ;;; dired-config.el ends here

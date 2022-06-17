@@ -4,14 +4,11 @@
 ;;; Commentary:
 
 ;;; Code:
-(if (not (package-installed-p 'magit))
-    (error "Please install magit"))
 
-(require 'magit)
-
-(add-hook 'magit-status-hook 'xah-fly-command-mode-activate)
-
-(global-set-key (kbd "C-x g") 'magit-status)
+(use-package magit
+  :bind (("C-x g" . magit-status)
+	 :map my-leader
+	 ("g" . magit-status)))
 
 (provide 'magit-config)
 ;;; magit-config.el ends here

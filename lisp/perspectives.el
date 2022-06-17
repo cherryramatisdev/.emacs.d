@@ -4,13 +4,12 @@
 ;;; Commentary:
 
 ;;; Code:
-(if (not (package-installed-p 'perspective))
-    (error "Please install perspective"))
 
-(require 'perspective)
-(customize-set-variable 'persp-mode-prefix-key (kbd "C-x x"))
-
-(persp-mode 1)
+(use-package perspective
+  :custom
+  (persp-mode-prefix-key (kbd "C-c M-p"))
+  :init
+  (persp-mode))
 
 (provide 'perspectives)
 ;;; perspectives.el ends here
