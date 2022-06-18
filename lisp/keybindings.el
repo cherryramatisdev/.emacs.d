@@ -81,6 +81,8 @@
   (keyboard-quit)
   (xah-fly-command-mode-activate))
 
+(define-key xah-fly-command-map (kbd "<home>") 'cancel)
+
 (xah-fly--define-keys
  xah-fly-shared-map
  '(("<home>" . cancel))
