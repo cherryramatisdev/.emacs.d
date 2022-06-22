@@ -1,7 +1,5 @@
 ;; -*- coding: utf-8; lexical-binding: t; -*-
 
-(require 's)
-
 (require 'package)
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -24,15 +22,17 @@
 (fido-vertical-mode 1)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
-  backup-by-copying t    ; Don't delink hardlinks
-  version-control t      ; Use version numbers on backups
-  delete-old-versions t  ; Automatically delete excess backups
-  kept-new-versions 20   ; how many of the newest versions to keep
-  kept-old-versions 5    ; and how many of the old
-  )
+      backup-by-copying t    ; Don't delink hardlinks
+      version-control t      ; Use version numbers on backups
+      delete-old-versions t  ; Automatically delete excess backups
+      kept-new-versions 20   ; how many of the newest versions to keep
+      kept-old-versions 5    ; and how many of the old
+      )
 
 (use-package naysayer-theme
   :init (load-theme 'naysayer t))
+
+(use-package s)
 
 (require 'xah)
 (require 'dired-config)
@@ -74,6 +74,10 @@
   (corfu-auto t)
   :init
   (global-corfu-mode))
+
+
+(if (not (daemonp))
+    (server-start))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
