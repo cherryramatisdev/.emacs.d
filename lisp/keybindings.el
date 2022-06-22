@@ -32,6 +32,12 @@
    ((string-equal major-mode "magit-status-mode") (call-interactively 'magit-stage))
    (t (call-interactively 'open-line))))
 
+(defun key/r ()
+  (interactive)
+  (cond
+   ((string-equal major-mode "magit-status-mode") (call-interactively 'magit-rebase))
+   (t (call-interactively 'kill-word))))
+
 (defun key/c ()
   (interactive)
   (cond
@@ -41,8 +47,14 @@
 (defun key/b ()
   (interactive)
   (cond
-   ((string-equal major-mode "magit-status-mode") (call-interactively 'magit-branch)
-    (t (xah-toggle-letter-case)))))
+   ((string-equal major-mode "magit-status-mode") (call-interactively 'magit-branch))
+   (t (xah-toggle-letter-case))))
+
+(defun key/v ()
+  (interactive)
+  (cond
+   ((string-equal major-mode "magit-status-mode") (call-interactively 'magit-gh))
+   (t (xah-paste-or-paste-previous))))
 
 (defun key/q ()
   (interactive)
@@ -57,6 +69,8 @@
 (define-key xah-fly-command-map (kbd "b") 'key/b)
 (define-key xah-fly-command-map (kbd "g") 'key/g)
 (define-key xah-fly-command-map (kbd "q") 'key/q)
+(define-key xah-fly-command-map (kbd "r") 'key/r)
+(define-key xah-fly-command-map (kbd "v") 'key/v)
 
 ;; ssss-----------------------------------------
 ;; Local Leader
