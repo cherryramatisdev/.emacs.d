@@ -133,8 +133,7 @@ TODO: fix this function because it's not working right now."
 
 (require 'keybindings)
 (require 'switch-project)
-(setq projects (delete ".." (delete "." (directory-files "d:\\git"))))
-(setq projectPrefix "d:\\git")
+(require 'notes)
 
 (if (not (daemonp))
     (server-start))
