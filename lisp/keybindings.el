@@ -102,16 +102,5 @@
  '(("<home>" . cancel))
  :direct)
 
-(defun my/kill-window ()
-  (interactive)
-  (if (one-window-p)
-      (kill-buffer)
-    (quit-window t)))
-
-(global-set-key (kbd "C-x k") 'my/kill-window)
-
-(require 'iy-go-to-char)
-(global-set-key (kbd "M-m") 'iy-go-up-to-char)
-
 (provide 'keybindings)
 ;;; keybindings.el ends here
