@@ -4,6 +4,9 @@
 ;;; Commentary:
 
 ;;; Code:
+(setq projects (delete ".." (delete "." (directory-files "d:\\git"))))
+(setq projectPrefix "d:\\git")
+
 (defun magit-status-fullscreen ()
   (interactive)
   (magit-status)
