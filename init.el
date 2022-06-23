@@ -22,6 +22,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq visible-bell 1)
+(electric-pair-mode 1)
 
 (fido-vertical-mode 1)
 
