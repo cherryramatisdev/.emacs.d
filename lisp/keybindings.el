@@ -66,6 +66,7 @@
   (interactive)
   (cond
    ((string-equal major-mode "magit-status-mode") (call-interactively 'magit-section-toggle))
+   ((string-equal major-mode "dired-mode") (call-interactively 'dired-up-directory))
    (t (xah-backward-punct))))
 
 (defun key/equal ()

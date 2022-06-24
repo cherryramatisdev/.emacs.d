@@ -47,12 +47,6 @@
 
 (use-package s)
 
-(use-package dired
-  :ensure nil
-  :bind (:map dired-mode-map
-	 ("TAB" . dired-find-file)
-	 ("<backtab>" . dired-up-directory)))
-
 (define-key isearch-mode-map (kbd "TAB") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "<backtab>") 'isearch-repeat-backward)
 
