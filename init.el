@@ -34,6 +34,8 @@
       kept-old-versions 5    ; and how many of the old
       )
 
+(add-to-list 'default-frame-alist '(font . "Iosevka-16"))
+
 (use-package s)
 
 (use-package naysayer-theme
