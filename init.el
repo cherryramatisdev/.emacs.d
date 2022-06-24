@@ -33,6 +33,8 @@
 
 (fido-vertical-mode 1)
 
+(load-theme 'modus-vivendi t)
+
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
       backup-by-copying t    ; Don't delink hardlinks
       version-control t      ; Use version numbers on backups
@@ -44,9 +46,6 @@
 (add-to-list 'default-frame-alist '(font . "Iosevka-16"))
 
 (use-package s)
-
-(use-package naysayer-theme
-  :init (load-theme 'naysayer t))
 
 (use-package dired
   :ensure nil
