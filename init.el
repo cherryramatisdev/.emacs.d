@@ -133,6 +133,35 @@ TODO: fix this function because it's not working right now."
   (add-hook 'elixir-mode-hook
           (lambda () (add-hook 'before-save-hook 'elixir-format nil t))))
 
+;; configure hippie expand
+(setq hippie-expand-try-functions-list
+       '(try-complete-lisp-symbol
+         try-complete-lisp-symbol-partially
+         try-expand-dabbrev
+         try-expand-dabbrev-from-kill
+         try-expand-dabbrev-all-buffers
+         try-expand-line
+         try-complete-file-name-partially
+         try-complete-file-name))
+
+(defun smart-tab ()
+  "This smart tab is minibuffer compliant: it acts as usual in
+    the minibuffer. Else, if mark is active, indents region. Else if
+    point is at the end of a symbol, expands it. Else indents the
+    current line."
+  (interactive)
+  (if (minibufferp)
+      (unless (minibuffer-complete)
+        (hippie-expand nil))
+    (if mark-active
+        (indent-region (region-beginning)
+                       (region-end))
+      (if (looking-at "\\_>")
+         (hippie-expand nil)
+        (indent-for-tab-command)))))
+
+(define-key xah-fly-insert-map (kbd "TAB") 'smart-tab)
+
 (require 'keybindings)
 (require 'switch-project)
 (require 'notes)
