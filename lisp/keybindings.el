@@ -87,9 +87,6 @@
 (define-key xah-fly-command-map (kbd "=") 'key/equal)
 
 ;; ssss-----------------------------------------
-;; Local Leader
-(define-prefix-command 'my-leader)
-
 (define-key my-leader (kbd "c") 'compile)
 (define-key my-leader (kbd "r") 'recompile)
 
@@ -103,6 +100,25 @@
 (define-key my-leader (kbd "<backspace>") 'persp-kill)
  
 (define-key xah-fly-command-map (kbd "<backspace>") 'my-leader)
+
+;; ssss-----------------------------------------
+(defun confirm-stuff ()
+  "This function will serve as C-c C-c for various buffer modes, like on magit commit that you do C-c C-c to make a commit effectively, we'll now just use TAB RET for example"
+  (interactive)
+  (cond
+   ((string-equal major-mode "text-mode") (call-interactively 'with-editor-finish))
+   (t (message ";)"))))
+
+(defun cancel-stuff ()
+  "This function will serve as C-c C-k for various buffer modes, like on magit commit that you do C-c C-k to make a commit effectively, we'll now just use TAB DEL for example"
+  (interactive)
+  (cond
+   ((string-equal major-mode "text-mode") (call-interactively 'with-editor-cancel))
+   (t (message ";)"))))
+
+(define-key xah-fly-command-map (kbd "TAB") 'my-c-c-leader)
+(define-key my-c-c-leader (kbd "RET") 'confirm-stuff)
+(define-key my-c-c-leader (kbd "DEL") 'cancel-stuff)
 
 (defun cancel ()
   (interactive)
