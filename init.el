@@ -139,6 +139,15 @@ TODO: fix this function because it's not working right now."
   (add-hook 'elixir-mode-hook
           (lambda () (add-hook 'before-save-hook 'elixir-format nil t))))
 
+(use-package smart-mode-line
+  :init (sml/setup)
+  :config (setq sml/theme 'respectful))
+
+(use-package mini-modeline
+  :after smart-mode-line
+  :config
+  (mini-modeline-mode t))
+
 ;; configure hippie expand
 (setq hippie-expand-try-functions-list
        '(try-complete-lisp-symbol
