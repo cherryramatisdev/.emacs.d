@@ -16,6 +16,13 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
+;; define key prefixes.
+;; This leader will be just a backup for the default SPC(because it already has too much bindings and I want my own mnemonics.)
+(define-prefix-command 'my-leader)
+
+;; C-c leader (the goal for this leader is to serve as an C-c so I can minimize the Ctrl usage.)
+(define-prefix-command 'my-c-c-leader)
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (menu-bar-mode -1)
