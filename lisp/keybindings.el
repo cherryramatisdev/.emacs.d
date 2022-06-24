@@ -62,6 +62,18 @@
    ((string-equal major-mode "magit-status-mode") (magit-mode-bury-buffer t))
    (t (xah-reformat-lines))))
 
+(defun key/dash ()
+  (interactive)
+  (cond
+   ((string-equal major-mode "magit-status-mode") (call-interactively 'magit-section-toggle))
+   (t (xah-backward-punct))))
+
+(defun key/equal ()
+  (interactive)
+  (cond
+   ((string-equal major-mode "magit-status-mode") (call-interactively 'magit-section-toggle))
+   (t (xah-forward-punct))))
+
 (define-key xah-fly-command-map (kbd "d") 'key/d)
 (define-key xah-fly-command-map (kbd "x") 'key/x)
 (define-key xah-fly-command-map (kbd "s") 'key/s)
@@ -71,6 +83,8 @@
 (define-key xah-fly-command-map (kbd "q") 'key/q)
 (define-key xah-fly-command-map (kbd "r") 'key/r)
 (define-key xah-fly-command-map (kbd "v") 'key/v)
+(define-key xah-fly-command-map (kbd "-") 'key/dash)
+(define-key xah-fly-command-map (kbd "=") 'key/equal)
 
 ;; ssss-----------------------------------------
 ;; Local Leader
